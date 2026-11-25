@@ -13,6 +13,7 @@
 // @sandbox      DOM
 // @author       maplewindio（基于 Hailin 的 chaoxing-ai-assistant 二次开发）
 // @license      MIT
+// @grant        GM_info
 // @grant        GM_xmlhttpRequest
 // @grant        GM_getValue
 // @grant        GM_setValue
@@ -2918,7 +2919,8 @@ Typr["U"] = {
 
     const ROOT_ID = 'cx-ai-study-root';
     const UI_HIDDEN_KEY = 'cx_ui_hidden';
-    const ASSISTANT_VERSION = '1.99.0';
+    // 版本号唯一来源是 @version，经 GM_info 读取，避免与更新检查产生两套版本
+    const ASSISTANT_VERSION = (typeof GM_info !== 'undefined' && GM_info?.script?.version) || '1.99.11';
     const QUESTION_SELECTOR = '.singleQuesId,.TiMu,.question-item[data-question-id],[data-questionid]';
     const DEEPSEEK_BASE = 'https://api.deepseek.com';
     const DEEPSEEK_SEARCH_URL = `${DEEPSEEK_BASE}/anthropic/v1/messages`;
